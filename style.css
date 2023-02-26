@@ -1,0 +1,257 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@500&family=Tilt+Neon&family=Ubuntu:ital@1&display=swap");
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+:root {
+    --yellow: #ffba08;
+    --grey: #ccc;
+    --Josefin: "Josefin Sans", sans-serif;
+}
+body {
+    height: 100svh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #023047;
+}
+.container {
+    width: 70%;
+    border-radius: 20px;
+    background-color: #023047;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1),
+        10px 10px 20px rgba(0, 0, 0, 0.2);
+    padding: 50px 30px;
+}
+.search-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.search-box .input {
+    width: 80%;
+    border-radius: 10px;
+    border: 1px solid var(--grey);
+    background-color: transparent;
+    padding: 10px 16px;
+    color: #fff;
+    font-size: 18px;
+}
+.search-box .input:focus-visible,
+.search-box .button:focus-visible {
+    outline: 0;
+}
+.search-box .button {
+    width: 20%;
+    background-color: var(--yellow);
+    padding: 10px 20px;
+    color: #333;
+    border-radius: 10px;
+    font-size: 16px;
+    margin-left: 20px;
+    cursor: pointer;
+}
+.details {
+    padding-top: 0;
+    max-height: 0;
+    transition: 0.5s;
+    overflow: hidden;
+}
+.details.active {
+    padding-top: 30px;
+    max-height: 1000px;
+}
+.details .information {
+    display: flex;
+    justify-content: space-between;
+}
+.details .image {
+    width: 30%;
+    height: 200px;
+}
+.details .image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 5px;
+}
+.details .text {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-left: 20px;
+}
+.details .title h1 {
+    font-size: 30px;
+    color: #fff;
+    font-family: "Tilt Neon", cursive;
+}
+.details .rating {
+    margin: 15px 0;
+}
+.details .rating i {
+    color: var(--yellow);
+}
+.details .rating span {
+    color: #fff;
+    font-size: 18px;
+    margin-left: 10px;
+    font-family: var(--Josefin);
+}
+.details .rated-year .rated,
+.details .rated-year .year {
+    color: var(--grey);
+    font-size: 16px;
+}
+.details .rated-year span + span {
+    margin-left: 10px;
+}
+.details .type {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    flex-flow: row wrap;
+    width: 100%;
+}
+.details .type span {
+    padding: 8px 20px;
+    border-radius: 10px;
+    border: 1px solid #fff;
+    color: var(--grey);
+    margin-right: 15px;
+    margin-bottom: 15px;
+}
+.details .plot,
+.details .writer,
+.details .cast {
+    padding-top: 20px;
+    color: var(--grey);
+    display: flex;
+    align-items: center;
+    flex-flow: row wrap;
+}
+.details .plot h2,
+.details .writer h2,
+.details .cast h2 {
+    margin-bottom: 10px;
+    width: 100%;
+    font-family: "Ubuntu", sans-serif;
+    font-size: 20px;
+}
+.details .plot p {
+    line-height: 26px;
+}
+.details .writer span,
+.details .cast span {
+    padding: 8px 20px;
+    border-radius: 10px;
+    border: 1px solid var(--grey);
+    margin-right: 10px;
+    margin-bottom: 15px;
+}
+.search-box .input,
+.search-box .button,
+.details .rated-year .rated,
+.details .rated-year .year,
+.details .type span,
+.details .plot p,
+.details .writer span,
+.details .cast span,
+.details .error p {
+    font-family: var(--Josefin);
+}
+.details .error,
+.details.invalid .information,
+.details.invalid .plot,
+.details.invalid .writer,
+.details.invalid .cast {
+    display: none;
+    opacity: 0;
+    visibility: hidden;
+    scale: 0;
+    transition: 0.5s;
+}
+.details.invalid .error,
+.details .information,
+.details .plot,
+.details .writer,
+.details .cast {
+    display: flex;
+    opacity: 1;
+    visibility: visible;
+    scale: 1;
+}
+.details .error {
+    width: 200px;
+    height: 220px;
+    margin: auto;
+    flex-direction: column;
+    align-items: center;
+}
+.details .error img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.details .error p {
+    color: #fff;
+}
+@media screen and (max-width: 1199px) {
+    .details .image {
+        height: 250px;
+    }
+}
+@media screen and (max-width: 992px) {
+    .details .image {
+        width: 35%;
+        height: 230px;
+    }
+}
+@media screen and (max-width: 576px) {
+    body {
+        padding: 50px 0;
+        height: 100%;
+    }
+    .container {
+        width: 90%;
+    }
+    .search-box {
+        position: relative;
+    }
+    .search-box .input {
+        width: 100%;
+        padding: 16px;
+    }
+    .search-box .button {
+        width: 30%;
+        margin-left: 10px;
+        position: absolute;
+        padding: 10px 10px;
+        right: 10px;
+    }
+    .details.active {
+        max-height: 3000px;
+    }
+    .details .information {
+        flex-direction: column;
+    }
+    .details .image {
+        width: 100%;
+        height: 400px;
+    }
+    .details .text {
+        width: 100%;
+        align-items: center;
+        padding-left: 0;
+        padding-top: 20px;
+        flex-flow: row wrap;
+    }
+    .details .text .title {
+        width: 100%;
+    }
+    .details .text .rated-year {
+        margin-left: 20px;
+    }
+}
