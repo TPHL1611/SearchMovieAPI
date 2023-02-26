@@ -32,7 +32,7 @@ function removeElementExist(element) {
 }
 document.querySelector("button").addEventListener("click", () => {
     const inputValue = document.querySelector(".input").value;
-    fetch(`http://www.omdbapi.com/?t=${inputValue}&apikey=${APIKey}`)
+    fetch(`https://www.omdbapi.com/?t=${inputValue}&apikey=${APIKey}`)
         .then((response) => response.json())
         .then((data) => {
             detail.classList.add("active");
